@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <link rel="stylesheet" type="text/css" href="index.css" media="screen"/>
+    <script src="index.js">
+
+        
+    </script>
+</head>
+<body id = "body">
+    <header>
+        <h2 class="hiof-logo">HIOF</h2>
+        <h2 class="user">User user</h2>
+    </header>
+
+<main>   
+<section class="todo-button-container">
+    <button id="main-todo-button-id" class="main-todo-button">+Todo</button>
+</section>
+
+<section class="todo-items">
+    <div id="my-modal" class="modal">
+        <div class="modal-content">
+            <form>
+                <div class="new-todo-title-div">
+                    <label>New todo</label>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="input-wrapper">
+                        <label>Title</label>
+                        <input type="text" id="new_title" class="new-title">
+                    
+                        <label>Description</label>
+                        <input id="new_description" type="text" class="new-description">
+                
+                        <label>Author</label>
+                        <input id="new_author" type="text" class="new-author">
+
+                        <button id="new-todo-button" class="new-todo-button" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <ul id ="wrapper">
+
+
+
+    </ul>
+</section>
+
+
+<section  class="completed-todos">
+
+    <h3 class="completed-todos-title">Completed todos</h3>
+    <div class="filter-by-date">
+        <input type="checkbox">Filter by date</input>
+    </div>
+ 
+
+   <table id="completedWrapper" class="completed-todos-table">
+       <tr class="top-table-row">
+           <th>Title</th>
+           <th>Author</th>
+           <th>Desciption</th>
+           <th>Completed Date</th>
+
+       </tr>
+       
+    <tr class="normal-table-row">
+        <td>Todotitle</td>
+        <td>Author Author</td>
+        <td>Im a baby siracha hot chicken mixtape pabst organic air ...</td>
+        <td>22.12.20</td>
+    </tr>
+    <tr class="normal-table-row">
+        <td>Todotitle</td>
+        <td>Author Author</td>
+        <td>Im a baby siracha hot chicken mixtape pabst organic air ...</td>
+        <td>22.12.20</td>
+    </tr>
+   </table> 
+</section>
+</main> 
+</body>
+</html>
