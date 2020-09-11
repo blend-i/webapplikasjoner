@@ -1,0 +1,207 @@
+* {
+    font-family: Metropolis Black;
+}
+
+body {
+    background-color: white;
+    width: 1440px;
+    margin: auto;
+    width: 100%;
+}
+
+main {
+    margin: auto;
+    width: 60%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    color: #333333;
+    width: 100%;
+    outline: none;
+    box-shadow: 0px 6px 10px rgba(196, 199, 204, 0.6);
+}
+
+.hiof-logo {
+    margin-left: 20px;
+    font-weight: 900;
+}
+
+.user {
+    margin-right: 20px;
+}
+
+
+.todo-items ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+}
+
+ul {
+    padding: 0px;
+}
+
+.todo-delete-button {
+    background-color: #ef3340;
+    color: white;
+    border: none;
+    padding: 0.2rem;
+    width: 4vw;
+}
+
+.todo-complete-button {
+    background-color: #56d4c1;
+    color: white;
+    border: none;
+    padding: 0.2rem;
+    width: 4vw;
+}
+
+li {
+    background-color: white;
+    width: 300px;
+    outline: none;
+    box-shadow: 5px 5px 5px rgba(158, 202, 237, 0.2), -5px 5px 5px rgba(158, 202, 237, 0.2);
+    padding: 20px;
+    margin: 0px 0px 20px 0px;
+}
+
+.todo-button-container {
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.todo-button-container .main-todo-button {
+    margin-top: 80px;
+    padding: 10px;
+    width: 200px;
+    font-size: 30px;
+    background-color: white;
+    border-width: 1px;
+    border: 1px solid #333333;
+}
+
+.main-todo-button:hover {
+    background-color: rgb(2, 196, 154);
+}
+
+/*COMPLETED TODOS */
+
+.completed-todos {
+    margin-top: 100px;
+    width: 100%;
+    color: #363636;
+}
+
+table.completed-todos-table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+
+.completed-todos-table th, .completed-todos-table td{
+    padding: 8px 35px 8px 35px;
+}
+
+th {
+    background-color: #E6E6E6;
+    padding: 10px 20px 5px 5px; 
+}
+
+.normal-table-row td{
+    width: 200px;
+    color: #B3B3B3;
+    border-bottom: 2px solid rgba(179,179,179, 0.4);
+}
+
+.filter-by-date {
+   float: right;
+}
+
+
+
+
+/* MODAL SECTION */
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+ 
+  }
+
+
+.modal-content {
+    background-color: #fefefe;
+    top: 195px;
+    left:520px;
+    width: 350px;
+    height: 378px;
+    box-shadow: 0px 1px 8px #00000029;
+    margin-left: 600px;
+  }
+
+  .new-title , .new-description, .new-author {
+    font-size: 12px;
+    width: 251px;
+    height: 40px;
+    border: 1px solid #B6B6B6;
+    border-radius: 5px;
+    opacity: 1;
+    margin-bottom: 10px;
+  }
+
+  .input-wrapper {
+      display: flex;
+      flex-flow: column;
+      padding: 10px;
+      width: 80%;
+      margin: auto;
+      
+  }
+
+  .new-todo-button {
+    color: #FFFFFF;
+    top: 498px;
+    left: 556px;
+    width: 250px;
+    height: 32px;
+    background: #56D4C2 0% 0% no-repeat padding-box;
+    border-style: none;;
+    opacity: 1;
+    margin-top: 10px;
+
+  }
+
+  .new-todo-title-div {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 15px;
+      border-bottom: 2px solid #F6F6F6;
+  }
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
