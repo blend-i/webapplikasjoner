@@ -1,0 +1,27 @@
+.search {
+    display: flex;
+    justify-content: end;
+    background-color: #eff2f5;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 170px;
+    input { 
+        border: none;
+        background-color: transparent;
+        outline-width: 0;
+        }
+    }
+
+    .knapp {
+        color: #FFFFFF;
+        top: 498px;
+        left: 556px;
+        width: 250px;
+        height: 32px;
+        background: #56D4C2 0% 0% no-repeat padding-box;
+        border-style: none;;
+        border-radius: 10px;
+        margin-left: 10px;
+        outline-width: 0;
+    }

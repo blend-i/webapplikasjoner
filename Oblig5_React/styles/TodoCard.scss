@@ -1,0 +1,44 @@
+.todoCard {
+    background-color: white;
+    width: 300px;
+    outline: none;
+    box-shadow: 5px 5px 5px rgba(158, 202, 237, 0.2), -5px 5px 5px rgba(158, 202, 237, 0.2);
+    padding: 20px;
+    margin: 0px 0px 20px 0px;
+    list-style: none;
+
+    h4 {
+        font-size: larger;
+    }
+
+    .desc {
+        font-size: medium;
+    }
+    
+    .author__p {
+        font-size: small;
+    }
+    
+    button{
+        float: right;
+    }
+}
+
+.delete {
+    background-color: #ef3340;
+    color: white;
+    border: none;
+    padding: 0.2rem;
+    width: 5vw;
+    border-radius: 6px;
+    margin-right: 5px;
+}
+
+.complete {
+    background-color: #56d4c1;
+    color: white;
+    border: none;
+    padding: 0.2rem;
+    width: 5vw;
+    border-radius: 5px;
+}

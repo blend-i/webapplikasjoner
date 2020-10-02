@@ -1,0 +1,26 @@
+@import "./styles/Title.scss";
+@import "./styles/Navbar.scss";
+@import "./styles/TodoButton.scss";
+@import "./styles/Modal.scss";
+@import "./styles/TodoCard.scss";
+@import "./styles/TodoCardList.scss";
+@import "./styles/Search.scss";
+@import "./styles/CompletedListItem.scss";
+@import "./styles/CompletedList.scss";
+
+
+.modal__wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+
+.no__todo {
+    display: flex;
+    justify-content: center;
+
+}
+
+.main__main {
+
+}

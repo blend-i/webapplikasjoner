@@ -1,0 +1,49 @@
+.modal {
+    background-color: #fefefe;
+
+    form {
+        display: flex;
+        flex-flow: column;
+        padding: 10px;
+        width: 80%;
+        margin: auto;
+
+        input {
+            font-size: 12px;
+            width: 251px;
+            height: 40px;
+            border: 1px solid #b6b6b6;
+            border-radius: 5px;
+            opacity: 1;
+            margin-bottom: 10px;
+        }
+        button {
+            color: #ffffff;
+            top: 498px;
+            left: 556px;
+            width: 258px;
+            height: 32px;
+            background: #56d4c2 0% 0% no-repeat padding-box;
+            border-style: none;
+            opacity: 1;
+            margin-top: 10px;
+        }
+    }
+}
+
+.close {
+    float: right;
+    border-style: none;
+    background-color: white;
+    outline: none;
+    font-size: large;
+    color: #b6b6b6;
+}
+
+.newTodo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-bottom: 2px solid #f6f6f6;
+    font-weight: bold;
+}
