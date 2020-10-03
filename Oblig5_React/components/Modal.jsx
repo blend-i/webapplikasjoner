@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Modal from 'react-modal';
+
 
 Modal.setAppElement('body');
 
+
+
 function Modall({ state, close, handleTitleChange, handleDescriptionChange, handleAuthorChange, handleSubmit, setModalOpen }) {
+
+    const [fifty, setFifty] = useState(50);
+
+    const limit = (e) => {
+        setFifty(50 - e.target.value.length)
+    };
+
     return (
         state ? (<Modal
             className="modal"
@@ -35,8 +45,8 @@ function Modall({ state, close, handleTitleChange, handleDescriptionChange, hand
                 <label>Title</label>
                 <input type="text" onChange={handleTitleChange} />
 
-                <label>Description</label>
-                <input type="text" onChange={handleDescriptionChange} />
+                <label>Description {fifty < 1 ? ('(max characters reached)') : ('(' + fifty + ' characters left)')} </label>
+                <input id="descritpion__input" type="text"  maxLength={50} onKeyDown={limit} onChange={handleDescriptionChange}/>
 
                 <label>Author</label>
                 <input type="text" onChange={handleAuthorChange} />
