@@ -15,6 +15,7 @@ import user from './routes/user.js';
 const app = express();
 
 if (process.env.NODE_ENV === 'development') {
+    //Bruker morgan for logging av requests
     app.use(morgan('dev'));
 }
 

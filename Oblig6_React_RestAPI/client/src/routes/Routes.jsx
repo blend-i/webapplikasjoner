@@ -4,11 +4,15 @@ import NoMatch from '../components/NoMatch';
 
 import MainLayout from '../layouts/MainLayout';
 import Polls from '../pages/Polls';
+import CreatePoll from "../pages/CreatePoll";
 
 const Routes = () => (
   <Router>
     <MainLayout>
       <Switch>
+      <Route exact path ="/createpoll">
+          <CreatePoll />
+        </Route>
         <Route exact path="/">
           <Polls />
         </Route>
