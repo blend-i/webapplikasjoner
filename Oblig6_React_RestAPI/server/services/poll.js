@@ -4,7 +4,7 @@ export const getPollById = async (id) => Poll.findById(id);
 
 export const listPolls = async () => Poll.find().populate('user', 'email');
 
-export const createPoll = async (data) => Poll.create(data);
+export const createPoll = async (data) => (await Poll.create(data)).populate('email');
 
 export const updatePoll = async (id, data) =>
   Poll.findByIdAndUpdate(id, data, {
