@@ -18,7 +18,7 @@ const PollSchema = new Schema(
                 answer: String,
                 votes: {
                     type: Number,
-                    default: 0,
+                    default: 0
                 }
             }
         ]

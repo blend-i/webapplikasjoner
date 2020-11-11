@@ -18,6 +18,7 @@ export const updatePoll = async (id, data) => {
 
   });
   //console.log("DATA: " + nyData);
+  
 }
 
 

@@ -85,14 +85,17 @@ const Polls = () => {
                 {poll.question}
               </Heading>
               <div fontSize="lg" mb={2}>
-                {poll.answers.map((answer) => (
-                  <List key={answer._id}>
-                  <label>
-                    {answer.answer}
-                    <Checkbox name={"checkbox"}  onChange={() => handleChecked(answer)}/>
-                  </label>
-                  </List>
-                ))
+                {poll.answers.map((answer) => {
+                  if(answer.answer !== null){
+                    return(
+                      <List key={answer._id}>
+                      <label>
+                        {answer.answer}
+                        <Checkbox name={"checkbox"}  onChange={() => handleChecked(answer)}/>
+                      </label>
+                      </List>
+                    )
+                  }})
                 }
               </div>
               <Text fontSize="lg" mb={2}>
