@@ -18,7 +18,7 @@ const PollSchema = new Schema(
                 answer: String,
                 votes: {
                     type: Number,
-                    default: false
+                    default: 0,
                 }
             }
         ]
@@ -27,10 +27,11 @@ const PollSchema = new Schema(
 );
 
 /*PollSchema.pre('save', function (next) {
-    this.slug = slugify.apply(this.name, { lower: true });
+    this.slug = slugify.apply(this.question, { lower: true });
     next();
 });
 */
+
 
 const Poll = mongoose.model('Poll', PollSchema);
 

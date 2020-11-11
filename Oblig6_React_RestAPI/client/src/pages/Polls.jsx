@@ -4,7 +4,6 @@ import { list } from '../utils/pollService';
 import { LiStyle } from '../styled/Styled';
 import { update } from "../utils/pollService";
 
-
 const Polls = () => {
   const [polls, setPolls] = useState();
   const [error, setError] = useState(null);
@@ -23,58 +22,54 @@ const Polls = () => {
     fetchData();
   }, []);
 
-  const handleChecked = (e) => {
-    chosenAnswers.map((ans) => {
-      if(ans === e.target.id) {
+  const handleChecked = (answer) => {
+
+    /*chosenAnswers.map((ans) => {
+      if(ans.id === e.target.id) {
+        console.log(e.target.id);
         removeAnswer(e.target.id);
-        return;
-      }}, 
-    setChosenAnswers([e.target.id, ...chosenAnswers])) 
+        return
+      }
+      
+    },
+    setChosenAnswers([e.target.id, ...chosenAnswers]));
+    */
+    console.log(answer);
+
+    /*chosenAnswers.map((ans) => {
+      if(ans._id === answer._id){
+        removeAnswer(answer);
+      }
+    })
+*/
+    setChosenAnswers([answer, ...chosenAnswers]);
+
+    console.log(chosenAnswers);
+    
   }
 
-  const removeAnswer = (toRemove) => {
-    const removed = chosenAnswers.filter((a) => a !== toRemove);
+  /*const removeAnswer = (toRemove) => {
+    const removed = chosenAnswers.filter((a) => a._id !== toRemove._id);
     setChosenAnswers([...removed]);
   }
+*/
 
   const handleSubmitAnswer = (e) => {
     console.log("Disse svarene skal være de som er krysset av nå");
     console.log(chosenAnswers);
 
+    console.log(e.target.id)
+
     const updateVotes = async () => {
-
-      //const newChosen = chosenAnswers.splice();
-
-
-      const data = {
-        answers: [
-          {votes: 1},
-        ]
-      }
-        
-      //await update("5fa99de69daf196814ebbf96", data);
-      chosenAnswers.map( async (ans)  => {
-      
-        console.log(ans);
-        
-        /*const data = {
-        
-          answers: [{
-            votes: 1,
-          }
-        ]
-        };
-        */
-        await update(e.target.id, data);
-      
+      chosenAnswers.map((ans) => {
+        update(e.target.id, ans)
       })
     };
+
     updateVotes();
 
-    //chosenAnswers.map((ans) => removeAnswer(ans));
+  //chosenAnswers.map((ans) => removeAnswer(ans));
   }
-
-  
 
   return (
     <section>
@@ -94,7 +89,7 @@ const Polls = () => {
                   <LiStyle key={answer._id}>
                   <label>
                     {answer.answer}
-                    <input id={answer._id} type="checkbox" name="checkfield"  onChange={handleChecked}/>
+                    <input  type="checkbox" name={"checkbox"}  onChange={() => handleChecked(answer)}/>
                   </label>
                   </LiStyle>
                 ))
@@ -105,7 +100,7 @@ const Polls = () => {
                 {new Date(poll.createdAt).toDateString()}
               </Text>
               <Text fontSize="lg">By: {poll.email}</Text>
-              <button id={poll._id} onClick={handleSubmitAnswer}>VIS ALLE ANSWERS</button>
+              <button id={poll.id} onClick={handleSubmitAnswer}>CLICK HERE TO VOTE </button>
             </Box>
           ))}
       

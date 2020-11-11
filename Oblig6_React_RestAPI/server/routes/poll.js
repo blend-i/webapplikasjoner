@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/:id', pollController.get);
 router.get('/', pollController.list);
 router.post('/', pollController.create);
-router.patch('/:id', pollController.update);
+router.put('/:id', pollController.update);
 router.delete('/:id', pollController.remove);
 
 export default router;

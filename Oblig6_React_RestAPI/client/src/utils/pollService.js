@@ -29,7 +29,7 @@ export const create = async (data) => {
 
 export const update = async (id, data) => {
   try {
-    return await http.patch(`${API_URL}/${id}`, data);
+    return await http.put(`${API_URL}/${id}`, data);
   } catch (err) {
     return err.response.data;
   }
@@ -39,4 +39,5 @@ export default {
   create,
   list,
   get,
+  update,
 };

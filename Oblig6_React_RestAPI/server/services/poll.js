@@ -6,12 +6,20 @@ export const listPolls = async () => Poll.find().populate('user', 'email');
 
 export const createPoll = async (data) => (await Poll.create(data)).populate('email');
 
-export const updatePoll = async (id, data) =>
-  Poll.findByIdAndUpdate(id, data, {
+export const updatePoll = async (id, data) => {
+ 
+  console.log("Data param i services: " + JSON.stringify(data));
+
+
+  Poll.findByIdAndUpdate(id, data,  {
     new: true,
     runValidators: true,
-    useFindAndModify: false,
+    useFindAndModify: true,
+
   });
+  //console.log("DATA: " + nyData);
+}
+
 
 export const removePoll = async (id) => {
   const poll = await Poll.findById(id);
