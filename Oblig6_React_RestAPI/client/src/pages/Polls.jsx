@@ -23,58 +23,36 @@ const Polls = () => {
   }, []);
 
   const handleChecked = (answer) => {
-
-    /*chosenAnswers.map((ans) => {
-      if(ans.id === e.target.id) {
-        console.log(e.target.id);
-        removeAnswer(e.target.id);
-        return
-      }
-      
-    },
-    setChosenAnswers([e.target.id, ...chosenAnswers]));
-    */
-    console.log(answer);
-
-    /*chosenAnswers.map((ans) => {
-      if(ans._id === answer._id){
+    chosenAnswers.map((ans) => {
+      if(ans === answer){
         removeAnswer(answer);
-      }
-    })
-*/
-    setChosenAnswers([answer, ...chosenAnswers]);
-
-    console.log(chosenAnswers);
-    
+        return;
+      }},
+      setChosenAnswers([answer, ...chosenAnswers]));
   }
 
-  /*const removeAnswer = (toRemove) => {
-    const removed = chosenAnswers.filter((a) => a._id !== toRemove._id);
+  const removeAnswer = (toRemove) => {
+    console.log("removing..." + toRemove.answer);
+    const removed = chosenAnswers.filter((a) => a !== toRemove);
     setChosenAnswers([...removed]);
   }
-*/
 
   const handleSubmitAnswer = (e) => {
-    console.log("Disse svarene skal være de som er krysset av nå");
+    console.log("totalAnswers");
     console.log(chosenAnswers);
-
-    console.log(e.target.id)
-
     const updateVotes = async () => {
       chosenAnswers.map((ans) => {
         update(e.target.id, ans)
       })
     };
-
     updateVotes();
-
-  //chosenAnswers.map((ans) => removeAnswer(ans));
+  chosenAnswers.map((ans) => removeAnswer(ans));
   }
 
   return (
     <section>
-      <Heading mb={2} as="h1" size="md">
-        Polls page
+      <Heading marginLeft={"20px"} mb={2} as="h1" size="md">
+        Polls
       </Heading>
       {error && <p>{error}</p>}
       <Flex direction={"column"}>
@@ -88,12 +66,10 @@ const Polls = () => {
                 {poll.answers.map((answer) => {
                   if(answer.answer !== null){
                     return(
-                      <List key={answer._id}>
-                      <label>
-                        {answer.answer}
-                        <Checkbox name={"checkbox"}  onChange={() => handleChecked(answer)}/>
-                      </label>
-                      </List>
+                      <Flex key={answer._id} >
+                        <Text><Icon name="chevron-right" mr={2} />{answer.answer}</Text>
+                        <Checkbox marginLeft={"10px"} variantColor={"green"} name={"checkbox"}  onChange={() => handleChecked(answer)}/>
+                      </Flex>
                     )
                   }})
                 }
@@ -103,10 +79,15 @@ const Polls = () => {
                 {new Date(poll.createdAt).toDateString()}
               </Text>
               <Text fontSize="lg">By: {poll.email}</Text>
-              <Button id={poll.id} onClick={handleSubmitAnswer}>VOTE </Button>
+              <Button 
+                marginTop="20px"  
+                _hover={{
+                    bg: "#007b5f",
+                    transform: "scale(1.06)",
+                    borderColor: "#000000",}} 
+                onClick={handleSubmitAnswer}>Submit</Button>  
             </Box>
           ))}
-      
       </Flex>
     </section>
   );

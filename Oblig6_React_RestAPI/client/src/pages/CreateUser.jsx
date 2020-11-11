@@ -32,15 +32,20 @@ const CreateUser = () => {
 
     return (
         <div>
-            <FormControl>
-                <Flex>
-                    <FormLabel htmlFor="email">Email address</FormLabel>
-                    <Input width="400px" size="md" focusBorderColor="#007b5f" type="email" id="email" onChange={handleEmail} />
-                    <FormLabel htmlFor="password">Password</FormLabel>
-                    <Input width="400px" size="md" focusBorderColor="#007b5f" type="password" id="password" onChange={handlePassword} />
-                </Flex>
+            <FormControl marginLeft={"20px"}>
+                <FormLabel marginBottom={3} htmlFor="email">Email address</FormLabel>
+                <Input width="400px" size="md" focusBorderColor="#007b5f" type="email" id="email" onChange={handleEmail} />
+                <FormLabel marginBottom={3} marginTop={3} htmlFor="password">Password</FormLabel>
+                <Input width="400px" size="md" focusBorderColor="#007b5f" type="password" id="password" onChange={handlePassword} />
             </FormControl>
-            <Button onClick={handleSubmit}>Submit</Button>             
+            <Button 
+                marginTop="20px" 
+                marginLeft="20px" 
+                _hover={{
+                    bg: "#007b5f",
+                    transform: "scale(1.06)",
+                    borderColor: "#000000",}} 
+                onClick={handleSubmit}>Submit</Button>              
         </div>
     )
     };

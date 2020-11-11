@@ -56,6 +56,11 @@ const Nav = () => (
           Create a poll
         </NavLink>
       </NavMenuItem>
+      <NavMenuItem>
+        <NavLink exact to="/results" activeClassName="active">
+          Results
+        </NavLink>
+      </NavMenuItem>
     </NavMenu>
   </StyledNav>
 );

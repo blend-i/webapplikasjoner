@@ -6,6 +6,7 @@ import MainLayout from '../layouts/MainLayout';
 import Polls from '../pages/Polls';
 import CreatePoll from "../pages/CreatePoll";
 import CreateUser from "../pages/CreateUser";
+import Result from '../pages/Result';
 
 const Routes = () => (
   <Router>
@@ -16,6 +17,9 @@ const Routes = () => (
         </Route>
       <Route exact path ="/createpoll">
           <CreatePoll />
+        </Route>
+        <Route exact path="/results">
+          <Result />
         </Route>
         <Route exact path="/">
           <Polls />
