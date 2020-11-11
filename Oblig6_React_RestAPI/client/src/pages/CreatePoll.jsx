@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Heading, Flex, Text, Icon } from '@chakra-ui/core';
+import { Input, Button, List } from '@chakra-ui/core';
 import Form from "../components/Form";
 import Answer from "../components/Answer";
 import { create } from "../utils/pollService";
@@ -12,7 +12,6 @@ const CreatePoll = () => {
     const [answerValue4, setAnswerValue4] = useState(null);
     
     const [questionValue, setQuestionValue] = useState(null);
-    const [correct, setCorrect] = useState(false);
 
     const handleAnswerChange = (e) => {
         setAnswerValue(e.target.value);
@@ -29,10 +28,6 @@ const CreatePoll = () => {
 
     const handleQuestionChange = (e) => {
         setQuestionValue(e.target.value);
-    }
-
-    const handleTrue = () => {
-        setCorrect(!correct);
     }
 
     const handleSubmit = (e) => {
@@ -58,33 +53,31 @@ const CreatePoll = () => {
     return (
         <div>
             <form>
-                <ul className="form__ul">
-                    <li>
-                    <input defaultValue="Question" type="text" onChange={handleQuestionChange} />
-                    </li>
+               
+                    <List>
+                    <Input width="400px" size="md" focusBorderColor="#007b5f" placeholder="Question" type="text" onChange={handleQuestionChange} />
+                    </List>
                     
                     
-                    <li>
-                    <input defaultValue="Answer here" type="text" onChange={handleAnswerChange} />
-                    </li>
+                    <List>
+                    <Input width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange} />
+                    </List>
 
-                    <li>
-                    <input defaultValue="Answer here" type="text" onChange={handleAnswerChange2} />
-                    </li>
+                    <List>
+                    <Input width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange2} />
+                    </List>
 
-                    <li>
-                    <input defaultValue="Answer here" type="text" onChange={handleAnswerChange3} />
-                    </li>
+                    <List>
+                    <Input width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange3} />
+                    </List>
 
-                    <li>
-                    <input defaultValue="Answer here" type="text" onChange={handleAnswerChange4} />
-                    </li>
+                    <List>
+                    <Input width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange4} />
+                    </List>
 
-                </ul>
-                <button onClick={handleSubmit}>Post</button>
+                <Button onClick={handleSubmit}>Post</Button>
               
             </form>
-            <button onClick={handleTrue}> Set {correct.toString()}</button>
         </div>
     )
 }

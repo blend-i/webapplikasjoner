@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Heading, Flex, Text, Icon } from '@chakra-ui/core';
+import { Box, Heading, Flex, Text, Icon, List, Checkbox, Button } from '@chakra-ui/core';
 import { list } from '../utils/pollService';
 import { LiStyle } from '../styled/Styled';
 import { update } from "../utils/pollService";
@@ -84,23 +84,23 @@ const Polls = () => {
               <Heading mb={2} as="h2" size="sm">
                 {poll.question}
               </Heading>
-              <Text fontSize="lg" mb={2}>
+              <div fontSize="lg" mb={2}>
                 {poll.answers.map((answer) => (
-                  <LiStyle key={answer._id}>
+                  <List key={answer._id}>
                   <label>
                     {answer.answer}
-                    <input  type="checkbox" name={"checkbox"}  onChange={() => handleChecked(answer)}/>
+                    <Checkbox name={"checkbox"}  onChange={() => handleChecked(answer)}/>
                   </label>
-                  </LiStyle>
+                  </List>
                 ))
                 }
-              </Text>
+              </div>
               <Text fontSize="lg" mb={2}>
                 <Icon name="time" mr={2} />
                 {new Date(poll.createdAt).toDateString()}
               </Text>
               <Text fontSize="lg">By: {poll.email}</Text>
-              <button id={poll.id} onClick={handleSubmitAnswer}>CLICK HERE TO VOTE </button>
+              <Button id={poll.id} onClick={handleSubmitAnswer}>VOTE </Button>
             </Box>
           ))}
       

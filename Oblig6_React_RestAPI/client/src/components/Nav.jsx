@@ -43,7 +43,7 @@ const Nav = () => (
     <NavMenu>
       <NavMenuItem>
         <NavLink exact to="/" activeClassName="active">
-          Polls
+          Home
         </NavLink>
       </NavMenuItem>
       <NavMenuItem>
