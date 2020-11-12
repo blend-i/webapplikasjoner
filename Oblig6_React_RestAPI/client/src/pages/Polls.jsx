@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Heading, Flex, Text, Icon, List, Checkbox, Button } from '@chakra-ui/core';
 import { list } from '../utils/pollService';
-import { LiStyle } from '../styled/Styled';
 import { update } from "../utils/pollService";
 
 const Polls = () => {
@@ -15,7 +14,6 @@ const Polls = () => {
       if (error) {
         setError(error);
       } else {
-        //console.log(data);
         setPolls(data);
       }
     };
@@ -32,7 +30,6 @@ const Polls = () => {
   }
 
   const removeAnswer = (toRemove) => {
-    console.log("removing..." + toRemove.answer);
     const removed = chosenAnswers.filter((a) => a !== toRemove);
     setChosenAnswers([...removed]);
   }
@@ -59,7 +56,7 @@ const Polls = () => {
         {polls &&
           polls.map((poll) => (
             <Box p="6" as="article" key={poll.id}>
-              <Heading mb={2} as="h2" size="sm">
+              <Heading mb={2} as="h2" size="sm" color="#007b5f">
                 {poll.question}
               </Heading>
               <div fontSize="lg" mb={2}>
@@ -67,25 +64,25 @@ const Polls = () => {
                   if(answer.answer !== null){
                     return(
                       <Flex key={answer._id} >
-                        <Text><Icon name="chevron-right" mr={2} />{answer.answer}</Text>
+                        <Text width={"200px"}><Icon name="chevron-right" mr={2} />{answer.answer}</Text>
                         <Checkbox marginLeft={"10px"} variantColor={"green"} name={"checkbox"}  onChange={() => handleChecked(answer)}/>
                       </Flex>
                     )
                   }})
                 }
               </div>
-              <Text fontSize="lg" mb={2}>
+              <Text fontSize="sm" mb={2} mt={"10px"}>
                 <Icon name="time" mr={2} />
                 {new Date(poll.createdAt).toDateString()}
               </Text>
-              <Text fontSize="lg">By: {poll.email}</Text>
-              <Button 
+              <Text fontSize="lg"><Icon name="email" mr={2}/> {poll.user ? poll.user : "Anonymous"}</Text>
+              <Button
                 marginTop="20px"  
                 _hover={{
                     bg: "#007b5f",
                     transform: "scale(1.06)",
                     borderColor: "#000000",}} 
-                onClick={handleSubmitAnswer}>Submit</Button>  
+                id={poll.id} onClick={handleSubmitAnswer}>Submit</Button>  
             </Box>
           ))}
       </Flex>

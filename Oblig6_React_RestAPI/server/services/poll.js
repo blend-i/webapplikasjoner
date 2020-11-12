@@ -2,25 +2,17 @@ import Poll from '../models/poll.js';
 
 export const getPollById = async (id) => Poll.findById(id);
 
-export const listPolls = async () => Poll.find().populate('user', 'email');
+export const listPolls = async () => Poll.find();
 
-export const createPoll = async (data) => (await Poll.create(data)).populate('email');
+export const createPoll = async (data) => Poll.create(data);
 
 export const updatePoll = async (id, data) => {
- 
-  console.log("Data param i services: " + JSON.stringify(data));
-
-
   Poll.findByIdAndUpdate(id, data,  {
     new: true,
     runValidators: true,
     useFindAndModify: true,
-
   });
-  //console.log("DATA: " + nyData);
-  
 }
-
 
 export const removePoll = async (id) => {
   const poll = await Poll.findById(id);

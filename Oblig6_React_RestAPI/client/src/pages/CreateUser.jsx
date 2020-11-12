@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Input, Button, FormControl, FormLabel, FormHelperText, Flex } from '@chakra-ui/core';
 import { create } from "../utils/userService.js";
+import { GlobalContext } from '../../contexts/GlobalUserState.jsx';
 
 const CreateUser = () => {
 
+    const test = useContext(GlobalContext);
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
 
@@ -18,7 +20,6 @@ const CreateUser = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         //const data = "{\"question\": "+`${questionValue},\n`+"\"answer\": " +`${answerValue}}`;
-
         const data = {
             email: email,
             password: password
@@ -27,7 +28,10 @@ const CreateUser = () => {
         const createData = async () => {
             await create(data);
             }
-            createData();
+            createData();   
+            
+            console.log(email);
+            test.updateState(data.email);
     }
 
     return (

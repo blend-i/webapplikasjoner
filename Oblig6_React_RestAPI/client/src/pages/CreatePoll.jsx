@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Input, Button, List } from '@chakra-ui/core';
 import { create } from "../utils/pollService";
+import { GlobalContext } from '../../contexts/GlobalUserState';
 
 const CreatePoll = () => {
+    const email = useContext(GlobalContext);
     const [answerValue, setAnswerValue] = useState(null);
     const [answerValue2, setAnswerValue2] = useState(null);
     const [answerValue3, setAnswerValue3] = useState(null);
@@ -28,6 +30,7 @@ const CreatePoll = () => {
         e.preventDefault();
         const data = {
             question: questionValue,
+            user: email.state,
             answers: [
                 {answer: answerValue},
                 {answer: answerValue2},
@@ -46,10 +49,10 @@ const CreatePoll = () => {
         <div>
             <form>
                 <Input width="400px" size="md" focusBorderColor="#007b5f" placeholder="Question" type="text" onChange={handleQuestionChange} />
-                <Input width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange} />
-                <Input width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange2} />
-                <Input width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange3} />
-                <Input width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange4} />
+                <Input mt={"10px"} width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange} />
+                <Input mt={"10px"} width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange2} />
+                <Input mt={"10px"} width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange3} />
+                <Input mt={"10px"} width="400px" size="md" focusBorderColor="#007b5f" placeholder="Answer here" type="text" onChange={handleAnswerChange4} />
                 <Button 
                 marginTop="20px" 
                 marginLeft="20px" 

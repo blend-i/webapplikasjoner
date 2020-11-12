@@ -12,6 +12,9 @@ const PollSchema = new Schema(
             min: ['10', 'Spørsmålet må bestå av mer enn 10 tegn'],
             max: ['200', 'Spørsmålet må ha mindre enn 200 tegn'],
         },
+        user: {
+            type: String
+        },
         //slug: String, //Eventuell gjøre den til en index?
         answers: [
             {
@@ -31,7 +34,6 @@ const PollSchema = new Schema(
     next();
 });
 */
-
 
 const Poll = mongoose.model('Poll', PollSchema);
 

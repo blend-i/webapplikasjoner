@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Heading, Flex, Text, Icon, Button, Checkbox } from '@chakra-ui/core';
 import { list } from '../utils/pollService';
 
+
 const Result = () => {
   const [polls, setPolls] = useState();
   const [error, setError] = useState(null);
@@ -12,13 +13,11 @@ const Result = () => {
       if (error) {
         setError(error);
       } else {
-        console.log(data);
         setPolls(data);
       }
     };
     fetchData();
   }, []);
-
 
   return (
     <section>

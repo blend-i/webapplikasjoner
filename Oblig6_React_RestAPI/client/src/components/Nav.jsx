@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -38,7 +39,8 @@ const NavMenuItem = styled.li`
   }
 `;
 
-const Nav = () => (
+const Nav = () => {
+return(
   <StyledNav>
     <NavMenu>
       <NavMenuItem>
@@ -63,6 +65,7 @@ const Nav = () => (
       </NavMenuItem>
     </NavMenu>
   </StyledNav>
-);
+
+)};
 
 export default Nav;
