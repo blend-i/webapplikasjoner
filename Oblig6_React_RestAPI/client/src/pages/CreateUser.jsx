@@ -5,7 +5,7 @@ import { GlobalContext } from '../../contexts/GlobalUserState.jsx';
 
 const CreateUser = () => {
 
-    const test = useContext(GlobalContext);
+    const global = useContext(GlobalContext);
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
 
@@ -31,7 +31,7 @@ const CreateUser = () => {
             createData();   
             
             console.log(email);
-            test.updateState(data.email);
+            global.updateState(data.email);
     }
 
     return (
