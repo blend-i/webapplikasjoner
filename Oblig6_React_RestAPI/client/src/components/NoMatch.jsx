@@ -1,10 +1,10 @@
 import React from 'react';
-import { Heading } from '@chakra-ui/core';
+//import { Heading } from '@chakra-ui/core';
 
 const NoMatch = () => (
-  <Heading as="h2" size="lg">
+  <p>
     404
-  </Heading>
+  </p>
 );
 
 export default NoMatch;
