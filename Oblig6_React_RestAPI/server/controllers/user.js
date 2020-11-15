@@ -3,7 +3,8 @@ import { userService } from '../services/index.js';
 import catchAsyncErrors from '../middleware/catchAsync.js';
 
 export const create = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.email);
+  console.log("EMAIL CONSOLE: "+req.body.email);
+
   const user = await userService.createUser(req.body);
   res.status(201).json(user);
 });
